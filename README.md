@@ -11,4 +11,5 @@
 
 
 SplitData.py
+
 	- Splits npf_train.csv randomly into train.csv 60%, validation.csv 20% and test.csv 20%

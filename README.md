@@ -15,11 +15,15 @@ SplitData.py
 	- Splits npf_train.csv randomly into train.csv 60%, validation.csv 20% and test.csv 20%
 
 data_cleaner.py 
+
 To set up the raw data file for use, following the steps from Exercises 1. 
-Imports: numpy, pandas
-Input: npf data set
+
+Imports: numpy, pandas 
+
+Input: npf data set 
 - Removes ID and partlybad columns
 - sets new index as the date
 - adds binary 'class2' column, separating event and non-event days
 - arranges columns to place 'class2' at the start of the data frame. 
+
 Output: npf data set with changes made as above. 

@@ -1,7 +1,8 @@
 import numpy as np
 import pandas as pd
 
-def data_cleaner(data):
+def data_cleaner(df):
+    data = df.copy()
     #remove the id, partlybad columns
     data.drop(["id","partlybad"],1,inplace=True)
     #set new index using the date column

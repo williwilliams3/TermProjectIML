@@ -11,14 +11,14 @@ import numpy as np
 import os
 
 
-os.chdir('/Users/bwilliams/GoogleDrive/UniversityOfHelsinki/Fall2020/IML/TeamProject/data')
+os.chdir('/Users/bwilliams/GoogleDrive/UniversityOfHelsinki/Fall2020/IML/TeamProject/TermProjectIML/')
 
-df = pd.read_csv('npf_train.csv')
+df = pd.read_csv('data/npf_train.csv')
 
 train, validation, test = \
               np.split(df.sample(frac=1, random_state=42), 
                        [int(.6*len(df)), int(.8*len(df))])
               
-train.to_csv('train.csv', index=False)
-validation.to_csv('validation.csv', index=False)
-test.to_csv('test.csv', index=False)
+train.to_csv('data/train.csv', index=False)
+validation.to_csv('data/validation.csv', index=False)
+test.to_csv('data/test.csv', index=False)

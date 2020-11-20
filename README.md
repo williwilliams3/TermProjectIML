@@ -27,3 +27,10 @@ Input: npf data set
 - arranges columns to place 'class2' at the start of the data frame. 
 
 Output: npf data set with changes made as above. 
+
+(Modified data_clear.py to work on a copy of data set and not make changes on original dataset)
+
+DecisionTreeFit_CV.py
+	
+	- Fits Decision tree classifier over binary Class2 using 10-Fold Cross Validation over train+validation set 
+	- Computes unbiased accuracy and AUC on test set

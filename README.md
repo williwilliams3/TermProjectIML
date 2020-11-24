@@ -12,7 +12,38 @@
 
 SplitData.py
 
-	- Splits npf_train.csv randomly into train.csv 60%, validation.csv 20% and test.csv 20%
+	- Stratified sample npf_train.csv randomly into train.csv 60%, validation.csv 20% and test.csv 20% with respect to variable class4
+	- Also generates datasets into memory, wiht binary response and multiclass response 
+	- Uses functions data_generator(df), convert_binary(y)
+	- If the directory is set to where the file is can be run by from SplitData import * 
+
+	
+def data_generator(df):
+    '''
+    input:
+        df: dataframe to split stratified by variable class
+        class: string with variable to use as response and as variable to stratify by
+    output:
+        X_train, y_train: variables and response 60% data 
+        X_val, y_val: variables and response 20% data 
+        X_trainval, y_trainval: variables and response 80% data (for cross validation)
+        X_test, y_test: variables and response 20% data 
+    '''
+
+def convert_binary(y):
+    '''
+    Parameters
+    ----------
+    y : repsonse variable with 4 classes
+
+    Returns
+    -------
+    y : reponse variable 2 classes
+
+    '''
+    y_bin = np.where(y == "nonevent", "nonevent","event")
+    return y_bin
+
 
 data_cleaner.py 
 
@@ -33,4 +64,5 @@ Output: npf data set with changes made as above.
 DecisionTreeFit_CV.py
 	
 	- Fits Decision tree classifier over binary Class2 using 10-Fold Cross Validation over train+validation set 
+	- Fits Decision tree classifier over Class4 using 10-Fold Cross Validation over train+validation set 
 	- Computes unbiased accuracy and AUC on test set

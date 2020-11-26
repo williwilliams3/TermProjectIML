@@ -49,15 +49,15 @@ data_cleaner.py
 
 To set up the raw data file for use, following the steps from Exercises 1. 
 
-Imports: numpy, pandas 
+	Imports: numpy, pandas 
 
-Input: npf data set 
-- Removes ID and partlybad columns
-- sets new index as the date
-- adds binary 'class2' column, separating event and non-event days
-- arranges columns to place 'class2' at the start of the data frame. 
+	Input: npf data set 
+	- Removes ID and partlybad columns
+	- sets new index as the date
+	- adds binary 'class2' column, separating event and non-event days
+	- arranges columns to place 'class2' at the start of the data frame. 
 
-Output: npf data set with changes made as above. 
+	Output: npf data set with changes made as above. 
 
 (Modified data_clear.py to work on a copy of data set and not make changes on original dataset)
 

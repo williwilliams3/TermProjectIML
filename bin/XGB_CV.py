@@ -21,7 +21,7 @@ import matplotlib.pyplot as plt
 from sklearn import metrics
 from sklearn.metrics import plot_confusion_matrix
 from sklearn.model_selection import cross_val_score, GridSearchCV, KFold, RandomizedSearchCV, train_test_split
-from sklearn.metrics import plot_confusion_matrix
+
 
 import xgboost as xgb
 

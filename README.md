@@ -68,10 +68,18 @@ DecisionTreeFit_CV.py
 	- Computes unbiased accuracy and AUC on test set
 	
 	
+### Accuracies for the binary class models	
 	
-	
-| Accuracy   | DT Binary  | RF Binary   | XGB Binary   | DT Multiclass | RF Multiclass | XGB Multiclass |
-|------------|------------|-------------|-------------|---------------|---------------|----------------|
-| Training   |        89% |        100% |        100% |        66%    |        100%   |        100%    |
-| Validation |        83% |        86%  |        89%  |        61%    |        61%    |        67%     |
-| Test       |        81% |        83%  |        88%  |        60%    |        67%    |        62%     |
+| Accuracy   | DT Binary  | RF Binary   | XGB Binary   |
+|------------|------------|-------------|-------------|
+| Training   |        89% |        100% |        100% | 
+| Validation |        83% |        86%  |        89%  |  
+| Test       |        81% |        83%  |        88%  |
+
+### Accuracies for the multi-classification models
+
+| Accuracy   | DT Multiclass | RF Multiclass | XGB Multiclass |
+|------------|---------------|---------------|----------------|
+| Training   |        66%    |        100%   |        100%    |
+| Validation |        61%    |        61%    |        67%     |
+| Test       |        60%    |        67%    |        62%     |

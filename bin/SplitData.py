@@ -76,12 +76,31 @@ y_val_bin = convert_binary(y_val)
 y_trainval_bin = convert_binary(y_trainval)
 y_test_bin = convert_binary(y_test)
 
+
+# Normalized datasets
+from sklearn.preprocessing import StandardScaler
+
+scaler = StandardScaler()
+
+scaler.fit(X_trainval)
+
+X_trainval_norm = scaler.transform(X_trainval)
+X_train_norm = scaler.transform(X_train)
+X_val_norm = scaler.transform(X_val)
+X_test_norm = scaler.transform(X_test)
+
+
+
+
 '''
 Count the classes by group
-y_trainval.value_counts(normalize=True)
-y_test.value_counts(normalize=True)
-y_train.value_counts(normalize=True)
-y_test.value_counts(normalize=True)
+
+y_trainval.value_counts()
+y_test.value_counts()
+y_train.value_counts()
+y_test.value_counts()
+y_val.value_counts()
+
 '''
 
 

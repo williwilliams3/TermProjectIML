@@ -12,6 +12,7 @@ import pandas as pd
 import os
 
 os.chdir('/Users/bwilliams/GoogleDrive/UniversityOfHelsinki/Fall2020/IML/TeamProject/TermProjectIML/bin')
+
 from SplitData import *
 
 from collections import OrderedDict

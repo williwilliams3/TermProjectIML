@@ -70,16 +70,16 @@ DecisionTreeFit_CV.py
 	
 ### Accuracies for the binary class models	
 	
-| Accuracy   | DT Binary  | RF Binary   | XGB Binary   | KNN Binary   | Log Binary   |
-|------------|------------|-------------|-------------|-------------|-------------|
-| Training   |        89% |        100% |        100% |        89.6% |        88%    | 
-| Validation |        83% |        86%  |        89%  |        86.5%  |        82%    |  
-| Test       |        81% |        83%  |        88%  |        84.6%  |        87%    |
+| Accuracy   | DT Binary  | RF Binary   | XGB Binary  | KNN Binary  | Log Binary  | Naive Bayes |
+|------------|------------|-------------|-------------|-------------|-------------|-------------|
+| Training   |        89% |        100% |        100% |       89.6% |        88%  |        78%  | 
+| Validation |        83% |        86%  |        89%  |      86.5%  |        82%  |        81%  | 
+| Test       |        81% |        83%  |        88%  |      84.6%  |        87%  |        79%  | 
 
 ### Accuracies for the multi-classification models
 
-| Accuracy   | DT Multiclass | RF Multiclass | XGB Multiclass | KNN Multiclass |
-|------------|---------------|---------------|----------------|----------------|
-| Training   |        66%    |        100%   |        100%    |        66%    |
-| Validation |        61%    |        61%    |        67%     |        57.7%  |
-| Test       |        60%    |        67%    |        62%     |        57.7%  |
+| Accuracy   | DT Multiclass | RF Multiclass | XGB Multiclass | KNN Multiclass | Naive Bayes |
+|------------|---------------|---------------|----------------|----------------|-------------|
+| Training   |        66%    |        100%   |        100%    |        66%     |        54%  | 
+| Validation |        61%    |        61%    |        67%     |        57.7%   |        46%  | 
+| Test       |        60%    |        67%    |        62%     |        57.7%   |        37%  | 

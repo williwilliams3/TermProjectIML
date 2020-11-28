@@ -66,3 +66,12 @@ DecisionTreeFit_CV.py
 	- Fits Decision tree classifier over binary Class2 using 10-Fold Cross Validation over train+validation set 
 	- Fits Decision tree classifier over Class4 using 10-Fold Cross Validation over train+validation set 
 	- Computes unbiased accuracy and AUC on test set
+	
+	
+	
+	
+| Accuracy   | DT Binary  | RF Binary   | XGB Binary   | DT Multiclass | RF Multiclass | XGB Multiclass |
+|------------|------------|-------------|-------------|---------------|---------------|----------------|
+| Training   |        89% |        100% |        100% |        66%    |        100%   |        100%    |
+| Validation |        83% |        86%  |        89%  |        61%    |        61%    |        67%     |
+| Test       |        81% |        83%  |        88%  |        60%    |        67%    |        62%     |

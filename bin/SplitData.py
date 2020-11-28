@@ -86,6 +86,7 @@ y_test.value_counts(normalize=True)
 
 
 '''
+import os
 os.chdir('/Users/bwilliams/GoogleDrive/UniversityOfHelsinki/Fall2020/IML/TeamProject/TermProjectIML/')
 
 df = pd.read_csv('data/npf_train.csv')

@@ -64,7 +64,7 @@ def convert_binary(y):
     y_bin = np.where(y == "nonevent", "nonevent","event")
     return y_bin
 
-url = "https://raw.githubusercontent.com/williwilliams3/TermProjectIML/master/data/train.csv"
+url = "https://raw.githubusercontent.com/williwilliams3/TermProjectIML/master/data/npf_train.csv"
 df = pd.read_csv(url)
 df = data_cleaner(df)
 
@@ -84,10 +84,16 @@ scaler = StandardScaler()
 
 scaler.fit(X_trainval)
 
-X_trainval_norm = scaler.transform(X_trainval)
-X_train_norm = scaler.transform(X_train)
-X_val_norm = scaler.transform(X_val)
-X_test_norm = scaler.transform(X_test)
+
+# X_trainval_norm = scaler.transform(X_trainval)
+# X_train_norm = scaler.transform(X_train)
+# X_val_norm = scaler.transform(X_val)
+# X_test_norm = scaler.transform(X_test)
+
+X_trainval_norm = pd.DataFrame(scaler.transform(X_trainval), index=X_trainval.index, columns=X_trainval.columns)
+X_train_norm = pd.DataFrame(scaler.transform(X_train), index=X_train.index, columns=X_train.columns)
+X_val_norm = pd.DataFrame(scaler.transform(X_val), index=X_val.index, columns=X_val.columns)
+X_test_norm = pd.DataFrame(scaler.transform(X_test), index=X_test.index, columns=X_test.columns)
 
 
 

@@ -21,10 +21,7 @@ import matplotlib.pyplot as plt
 from sklearn import metrics
 from sklearn.metrics import plot_confusion_matrix
 from sklearn.model_selection import cross_val_score, GridSearchCV, KFold, RandomizedSearchCV, train_test_split
-
-
 import xgboost as xgb
-
 from scipy.stats import uniform, randint
 
 # Cross validation on grid of values XGB

@@ -37,6 +37,7 @@ search.fit(X_trainval_norm, y_trainval_bin)
 svm_params = search.best_params_
 
 print(search.best_params_)
+# {'C': 810.2342569581549, 'gamma': 0.0005183165833793786, 'kernel': 'rbf'}
 
 svm_model = search.best_estimator_
 

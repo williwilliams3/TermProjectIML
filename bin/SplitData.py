@@ -101,11 +101,11 @@ X_test_norm = pd.DataFrame(scaler.transform(X_test), index=X_test.index, columns
 '''
 Count the classes by group
 
-y_trainval.value_counts()
-y_test.value_counts()
-y_train.value_counts()
-y_test.value_counts()
-y_val.value_counts()
+y_trainval.value_counts(normalize=True)
+y_test.value_counts(normalize=True)
+y_train.value_counts(normalize=True)
+y_test.value_counts(normalize=True)
+y_val.value_counts(normalize=True)
 
 '''
 

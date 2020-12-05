@@ -84,7 +84,7 @@ plt.show()
 
 ########################################################
 # Multiclass
-
+# elapsed:  6.7min finished
 xgb_model = xgb.XGBClassifier(objective="multi:softprob", random_state=42)
 params = {
     "colsample_bytree": uniform(0.7, 0.3),
@@ -94,14 +94,14 @@ params = {
     "n_estimators": randint(100, 400), # default 100
     "subsample": uniform(0.6, 0.4)
 }
-
+# {'colsample_bytree': 0.7604881960143233, 'gamma': 0.08182797143285225, 'learning_rate': 0.07927973937929789, 'max_depth': 2, 'n_estimators': 177, 'subsample': 0.8092261699076477}
 search = RandomizedSearchCV(xgb_model, param_distributions=params, random_state=42, n_iter=200, cv=5, verbose=1, n_jobs=1, return_train_score=True)
+print(search.best_params_)
 
 search.fit(X_trainval, y_trainval)
 xgb_params = search.best_params_
 
-print(search.best_params_)
-
+# **{'C': 109.53031576544694, 'gamma': 0.0005494254346819604, 'kernel': 'rbf'}
 
 
 xgb_model = search.best_estimator_

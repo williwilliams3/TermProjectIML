@@ -70,16 +70,16 @@ DecisionTreeFit_CV.py
 	
 ### Accuracies for the binary class models	
 	
-| Accuracy   | DT Binary  | RF Binary   | XGB Binary  | KNN Binary | Log Binary  | NB bestK    | NB PCA  | SVM         | 
-|------------|------------|-------------|-------------|------------|-------------|-------------|---------|-------------|
-| Training   |        89% |        100% |        100% |       85%  |        86%  |        81%  |     84% |        98%  | 
-| Validation |        83% |        86%  |        89%  |       78%  |        85%  |        85%  |     87% |        88%  | 
-| Test       |        81% |        83%  |        88%  |       80%  |        85%  |        87%  |     93% |        87%  | 
+| Accuracy   | DT Binary  | RF Binary   | XGB Binary  | KNN Binary | Log Binary  | NB bestK    | NB PCA  | SVM         | Ensamble    | 
+|------------|------------|-------------|-------------|------------|-------------|-------------|---------|-------------|-------------|
+| Training   |        88% |        100% |        100% |       85%  |        86%  |        81%  |     84% |        98%  |        96%  | 
+| Validation |        84% |        87%  |        90%  |       78%  |        85%  |        85%  |     87% |        90%  |        96%  | 
+| Test       |        88% |        88%  |        87%  |       80%  |        85%  |        87%  |     93% |        83%  |        92%  | 
 
 ### Accuracies for the multi-classification models
 
-| Accuracy   | DT Multiclass | RF Multiclass | XGB Multiclass | KNN Multiclass | NB bestK    | NB PCA      | SVM         | 
-|------------|---------------|---------------|----------------|----------------|-------------|-------------|-------------|
-| Training   |        66%    |        100%   |        100%    |        66%     |        62%  |        69%  |        86%  | 
-| Validation |        61%    |        61%    |        67%     |        57.7%   |        64%  |        62%  |        67%  | 
-| Test       |        60%    |        67%    |        62%     |        57.7%   |        62%  |        65%  |        67%  |
+| Accuracy   | DT Multiclass | RF Multiclass | XGB Multiclass | KNN Multiclass | NB bestK    | NB PCA      | SVM         | Ensamble    | 
+|------------|---------------|---------------|----------------|----------------|-------------|-------------|-------------|-------------|
+| Training   |        66%    |        100%   |        100%    |        66%     |        62%  |        69%  |        83%  |        94%  | 
+| Validation |        64%    |        66%    |        70%     |        57.7%   |        64%  |        62%  |        69%  |        98%  |
+| Test       |        67%    |        72%    |        70%     |        57.7%   |        62%  |        65%  |        68%  |        70%  |

@@ -107,8 +107,9 @@ def binary_predictions_fulldata():
     y_pred_train_proba_xgb = xgb_model.predict_proba(X_train)[:,0]
     y_pred_test_proba_xgb = xgb_model.predict_proba(X_test)[:,0]
     
+    print("XGB binary results")
     print('Accuracy on train set: ',metrics.accuracy_score(y_train_bin=='event', y_pred_train_proba_xgb>0.5))
-    print('Perplexity on train set: ', np.exp(-np.mean(np.log(np.where(y_train_bin=='event',y_pred_train_proba_xgb,1-y_pred_train_proba_xgb )))))
+    print('Perplexity on train set: ', np.exp(-np.mean(np.log(np.where(y_train_bin=='event',y_pred_train_proba_xgb,1-y_pred_train_proba_xgb )))), "\n")
     
     
     
@@ -120,8 +121,9 @@ def binary_predictions_fulldata():
     y_pred_train_proba_log = logistic_regression.predict_proba(X_train_norm)[:,0]
     y_pred_test_proba_log = logistic_regression.predict_proba(X_test_norm)[:,0]
     
+    print("Log binary results")
     print('Accuracy on train set: ',metrics.accuracy_score(y_train_bin=='event', y_pred_train_proba_log>0.5))
-    print('Perplexity on train set: ', np.exp(-np.mean(np.log(np.where(y_train_bin=='event',y_pred_train_proba_log,1-y_pred_train_proba_log )))))
+    print('Perplexity on train set: ', np.exp(-np.mean(np.log(np.where(y_train_bin=='event',y_pred_train_proba_log,1-y_pred_train_proba_log )))), "\n")
     
     
     # 4. NB Binary
@@ -135,8 +137,9 @@ def binary_predictions_fulldata():
     y_pred_train_proba_nb = model.predict_proba(X_train_i)[:,0]
     y_pred_test_proba_nb = model.predict_proba(X_test_i)[:,0]
     
+    print("Naive Bayes binary results")
     print('Accuracy on train set: ',metrics.accuracy_score(y_train_bin=='event', y_pred_train_proba_nb>0.5))
-    print('Perplexity on train set: ', np.exp(-np.mean(np.log(np.where(y_train_bin=='event',y_pred_train_proba_nb,1-y_pred_train_proba_nb )))))
+    print('Perplexity on train set: ', np.exp(-np.mean(np.log(np.where(y_train_bin=='event',y_pred_train_proba_nb,1-y_pred_train_proba_nb )))), "\n")
     
     # Blend of Models 
     
@@ -146,11 +149,9 @@ def binary_predictions_fulldata():
     y_pred_train_proba_blend = df_train_bin.mean(axis = 1)
     y_pred_test_proba_blend = df_test_bin.mean(axis = 1)
     
+    print("Model combination binary results")
     print('Accuracy on train set: ',metrics.accuracy_score(y_train_bin=='event', y_pred_train_proba_blend>0.5))
-     
-    
-    
-    print('Perpelxity on train set: ', np.exp(-np.mean(np.log(np.where(y_train_bin=='event',y_pred_train_proba_blend,1-y_pred_train_proba_blend )))))
+    print('Perpelxity on train set: ', np.exp(-np.mean(np.log(np.where(y_train_bin=='event',y_pred_train_proba_blend,1-y_pred_train_proba_blend )))), "\n")
     return y_pred_test_proba_blend
 
 
@@ -191,8 +192,9 @@ def multiclass_predictions_fulldata():
     y_pred_train_proba_svm = svm_model.predict_proba(X_train_norm)
     y_pred_test_proba_svm = svm_model.predict_proba(X_test_norm)
     
+    print("SVM multiclass trained model")
     print('Accuracy on train set: ', metrics.accuracy_score(pd.factorize(y_train, sort=True)[0], np.argmax(y_pred_train_proba_svm, axis = 1)) )
-    print('Binary Accuracy train: ', metrics.accuracy_score(y_train == 'nonevent', np.argmax(y_pred_train_proba_svm, axis = 1)==3 ))
+    print('Binary Accuracy train: ', metrics.accuracy_score(y_train == 'nonevent', np.argmax(y_pred_train_proba_svm, axis = 1)==3 ), "\n")
     
     # 2. XGB MultiClass 
     #{'colsample_bytree': 0.9915346248162882, 'gamma': 0.4812236474710556, 'learning_rate': 0.10553468874760924, 'max_depth': 3, 'n_estimators': 212, 'subsample': 0.6592347719813599}
@@ -201,8 +203,9 @@ def multiclass_predictions_fulldata():
     y_pred_train_proba_xgb = xgb_model.predict_proba(X_train)
     y_pred_test_proba_xgb = xgb_model.predict_proba(X_test)
     
+    print("XGB multiclass trained model")
     print('Accuracy on train set: ', metrics.accuracy_score(pd.factorize(y_train, sort=True)[0], np.argmax(y_pred_train_proba_xgb, axis = 1)) )
-    print('Binary Accuracy train: ', metrics.accuracy_score(y_train == 'nonevent', np.argmax(y_pred_train_proba_xgb, axis = 1)==3 ))
+    print('Binary Accuracy train: ', metrics.accuracy_score(y_train == 'nonevent', np.argmax(y_pred_train_proba_xgb, axis = 1)==3 ), "\n")
     
     
     # 3. NB MultiClass
@@ -216,8 +219,9 @@ def multiclass_predictions_fulldata():
     y_pred_train_proba_nb = model.predict_proba(X_train_i)
     y_pred_test_proba_nb = model.predict_proba(X_test_i)
     
+    print("Naive Bayes multiclass trained model")
     print('Accuracy on train set: ', metrics.accuracy_score(pd.factorize(y_train, sort=True)[0], np.argmax(y_pred_train_proba_nb, axis = 1)) )
-    print('Binary Accuracy train: ', metrics.accuracy_score(y_train == 'nonevent', np.argmax(y_pred_train_proba_nb, axis = 1)==3 ))
+    print('Binary Accuracy train: ', metrics.accuracy_score(y_train == 'nonevent', np.argmax(y_pred_train_proba_nb, axis = 1)==3 ), "\n")
     
     # Blend of Models 
 
@@ -227,6 +231,7 @@ def multiclass_predictions_fulldata():
     y_pred_train_proba_blend = np.c_[df_train_bin[[0,4,8]].mean(axis = 1), df_train_bin[[1,5,9]].mean(axis = 1), df_train_bin[[2,6,10]].mean(axis = 1) , df_train_bin[[3,7,11]].mean(axis = 1)]
     y_pred_test_proba_blend = np.c_[df_test_bin[[0,4,8]].mean(axis = 1), df_test_bin[[1,5,9]].mean(axis = 1), df_test_bin[[2,6,10]].mean(axis = 1) , df_test_bin[[3,7,11]].mean(axis = 1)]
     
+    print("Model combination multiclass trained model")
     print('Accuracy on train set: ', metrics.accuracy_score(pd.factorize(y_train, sort=True)[0], np.argmax(y_pred_train_proba_nb, axis = 1)) )
     print('Binary Accuracy train: ', metrics.accuracy_score(y_train == 'nonevent', np.argmax(y_pred_train_proba_nb, axis = 1)==3 ))
     
@@ -235,9 +240,6 @@ def multiclass_predictions_fulldata():
 
 p = binary_predictions_fulldata()
 y_pred_test_proba_blend = multiclass_predictions_fulldata()
-
-
-
 
 y_pred_test_proba_blend_int = np.argmax(y_pred_test_proba_blend, axis = 1)
 levels = {0:'II',1:'Ia',2:'Ib',3:'nonevent'}
@@ -263,4 +265,3 @@ df = df.append(df0)
 # By hand delete second entry of first row for it to be valid submission
 # I couldnt find a way to automate it easily
 df.to_csv('answers.csv', index=False, header=False)
-

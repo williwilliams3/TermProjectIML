@@ -53,16 +53,19 @@ from sklearn.decomposition import PCA
 from sklearn.naive_bayes import GaussianNB
 from sklearn.metrics import accuracy_score
 pca4 = PCA(n_components=14)
-X_train_i = pca4.fit_transform(X_train)
+X_trainval_i = pca4.fit_transform(X_trainval)
+X_train_i = pca4.transform(X_train)
 X_test_i = pca4.transform(X_test)
 X_val_i = pca4.transform(X_val)
 
 model = GaussianNB()
-model.fit(X_train_i, y_train)
+model.fit(X_trainval_i, y_trainval)
 
 y_pred_train_proba_nb = model.predict_proba(X_train_i)
 y_pred_val_proba_nb = model.predict_proba(X_val_i)
 y_pred_test_proba_nb = model.predict_proba(X_test_i)
+
+y_pred_trainval_proba_nb = model.predict_proba(X_trainval_i)
 
 
 print('Accuracy on train set: ', metrics.accuracy_score(pd.factorize(y_train, sort=True)[0], np.argmax(y_pred_train_proba_nb, axis = 1)) )
@@ -80,20 +83,26 @@ y_pred_train_proba_blend = np.c_[df_train_bin[[0,4,8]].mean(axis = 1), df_train_
 y_pred_val_proba_blend = np.c_[df_val_bin[[0,4,8]].mean(axis = 1), df_val_bin[[1,5,9]].mean(axis = 1), df_val_bin[[2,6,10]].mean(axis = 1) , df_val_bin[[3,7,11]].mean(axis = 1)]
 y_pred_test_proba_blend = np.c_[df_test_bin[[0,4,8]].mean(axis = 1), df_test_bin[[1,5,9]].mean(axis = 1), df_test_bin[[2,6,10]].mean(axis = 1) , df_test_bin[[3,7,11]].mean(axis = 1)]
 
-
+# Multiclass Acuracy 
 print('Accuracy on train set: ', metrics.accuracy_score(pd.factorize(y_train, sort=True)[0], np.argmax(y_pred_train_proba_blend, axis = 1)) )
-print('Accuracy on validation set: ',  metrics.accuracy_score(pd.factorize(y_test, sort=True)[0], np.argmax(y_pred_val_proba_blend, axis = 1)) )
 print('Accuracy on test set: ',  metrics.accuracy_score(pd.factorize(y_test, sort=True)[0], np.argmax(y_pred_test_proba_blend, axis = 1)) )
 
 
- 
+# Binary Accuracy 
+print('Binary accuracy on train set: ', metrics.accuracy_score(y_train == 'nonevent', np.argmax(y_pred_train_proba_blend, axis = 1)==3))
+print('Binary accuracy on test set: ',metrics.accuracy_score(y_test == 'nonevent', np.argmax(y_pred_test_proba_blend, axis = 1)==3))
+
+# Accuracy on umbalanced dataset 
+# 38% of events  72% of nonevents
+y_test == 'nonevent'
+y_test_hat = np.argmax(y_pred_test_proba_blend, axis = 1)==3
 
 
+acc_nonevent = np.mean(y_test_hat[y_test == 'nonevent']==True)
+acc_event = np.mean(y_test_hat[~(y_test == 'nonevent')]==False)
+acc = 0.5*acc_nonevent + 0.5*acc_event
 
-
-
-
-
+acc_umbalanced = .60*acc_nonevent + 0.5*acc_event
 
 
 

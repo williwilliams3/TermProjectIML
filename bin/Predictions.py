@@ -183,7 +183,7 @@ def multiclass_predictions_fulldata():
     X_test = df2.drop(["class4"], axis=1)
     X_test_norm = pd.DataFrame(scaler.transform(X_test), index=X_test.index, columns=X_test.columns)
     
-    # 1. SVM Binary 
+    # 1. SVM MultiClass 
  
     svm_model = SVC(**{'C': 109.53031576544694, 'gamma': 0.0005494254346819604, 'kernel': 'rbf'}, probability=True)
     svm_model.fit(X_train_norm, y_train)
@@ -194,9 +194,9 @@ def multiclass_predictions_fulldata():
     print('Accuracy on train set: ', metrics.accuracy_score(pd.factorize(y_train, sort=True)[0], np.argmax(y_pred_train_proba_svm, axis = 1)) )
     print('Binary Accuracy train: ', metrics.accuracy_score(y_train == 'nonevent', np.argmax(y_pred_train_proba_svm, axis = 1)==3 ))
     
-    # 2. XGB Binary 
-
-    xgb_model =  xgb.XGBClassifier(**{'colsample_bytree': 0.7604881960143233, 'gamma': 0.08182797143285225, 'learning_rate': 0.07927973937929789, 'max_depth': 2, 'n_estimators': 177, 'subsample': 0.8092261699076477}, random_state=42)
+    # 2. XGB MultiClass 
+    #{'colsample_bytree': 0.9915346248162882, 'gamma': 0.4812236474710556, 'learning_rate': 0.10553468874760924, 'max_depth': 3, 'n_estimators': 212, 'subsample': 0.6592347719813599}
+    xgb_model =  xgb.XGBClassifier(**{'colsample_bytree': 0.9915346248162882, 'gamma': 0.4812236474710556, 'learning_rate': 0.10553468874760924, 'max_depth': 3, 'n_estimators': 212, 'subsample': 0.6592347719813599}, random_state=42)
     xgb_model.fit(X_train, y_train)
     y_pred_train_proba_xgb = xgb_model.predict_proba(X_train)
     y_pred_test_proba_xgb = xgb_model.predict_proba(X_test)
@@ -205,7 +205,7 @@ def multiclass_predictions_fulldata():
     print('Binary Accuracy train: ', metrics.accuracy_score(y_train == 'nonevent', np.argmax(y_pred_train_proba_xgb, axis = 1)==3 ))
     
     
-    # 3. NB Binary
+    # 3. NB MultiClass
     
     pca1 = PCA(n_components=14)
     X_train_i = pca1.fit_transform(X_train)
@@ -248,7 +248,7 @@ p_nonevent = np.sum(y_pred_test_proba_blend_int==3)/len(y_pred_test_proba_blend_
 
 # Accuracy with umblanced classes
 # Following are class specific accuracies obtained in test of multiclass selected model
-acc_nonevent = 0.9534883720930233
+acc_nonevent = 0.9767441860465116
 acc_event = 0.8372093023255814
 
 df = pd.DataFrame(columns = [0,1], )
@@ -260,6 +260,7 @@ df0 = pd.DataFrame(np.c_[ class4, p], )
 
 df = df.append(df0)
 
+# By hand delete second entry of first row for it to be valid submission
+# I couldnt find a way to automate it easily
 df.to_csv('answers.csv', index=False, header=False)
 
-# By hand delete second entry of first row for it to be valid

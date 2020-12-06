@@ -36,7 +36,7 @@ print('Accuracy on test set: ',  metrics.accuracy_score(pd.factorize(y_test, sor
 # 2. XGB Multiclass
 import xgboost as xgb
 
-xgb_model =  xgb.XGBClassifier(**{'colsample_bytree': 0.7604881960143233, 'gamma': 0.08182797143285225, 'learning_rate': 0.07927973937929789, 'max_depth': 2, 'n_estimators': 177, 'subsample': 0.8092261699076477}, random_state=42)
+xgb_model =  xgb.XGBClassifier(**{'colsample_bytree': 0.9915346248162882, 'gamma': 0.4812236474710556, 'learning_rate': 0.10553468874760924, 'max_depth': 3, 'n_estimators': 212, 'subsample': 0.6592347719813599}, random_state=42)
 xgb_model.fit(X_trainval, y_trainval)
 
 y_pred_train_proba_xgb = xgb_model.predict_proba(X_train)
@@ -85,11 +85,13 @@ y_pred_test_proba_blend = np.c_[df_test_bin[[0,4,8]].mean(axis = 1), df_test_bin
 
 # Multiclass Acuracy 
 print('Accuracy on train set: ', metrics.accuracy_score(pd.factorize(y_train, sort=True)[0], np.argmax(y_pred_train_proba_blend, axis = 1)) )
+print('Accuracy on validation set: ',  metrics.accuracy_score(pd.factorize(y_val, sort=True)[0], np.argmax(y_pred_val_proba_blend, axis = 1)) )
 print('Accuracy on test set: ',  metrics.accuracy_score(pd.factorize(y_test, sort=True)[0], np.argmax(y_pred_test_proba_blend, axis = 1)) )
 
 
 # Binary Accuracy 
 print('Binary accuracy on train set: ', metrics.accuracy_score(y_train == 'nonevent', np.argmax(y_pred_train_proba_blend, axis = 1)==3))
+print('Binary accuracy on test set: ',metrics.accuracy_score(y_val == 'nonevent', np.argmax(y_pred_val_proba_blend, axis = 1)==3))
 print('Binary accuracy on test set: ',metrics.accuracy_score(y_test == 'nonevent', np.argmax(y_pred_test_proba_blend, axis = 1)==3))
 
 # Accuracy on umbalanced dataset 
@@ -97,12 +99,12 @@ print('Binary accuracy on test set: ',metrics.accuracy_score(y_test == 'nonevent
 y_test == 'nonevent'
 y_test_hat = np.argmax(y_pred_test_proba_blend, axis = 1)==3
 
-
 acc_nonevent = np.mean(y_test_hat[y_test == 'nonevent']==True)
 acc_event = np.mean(y_test_hat[~(y_test == 'nonevent')]==False)
 acc = 0.5*acc_nonevent + 0.5*acc_event
+print('Accuracy over Event ',acc_event)
+print('Accuracy over Nonevent ',acc_nonevent)
 
-acc_umbalanced = .60*acc_nonevent + 0.5*acc_event
 
 
 

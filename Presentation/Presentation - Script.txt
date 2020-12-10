@@ -1,0 +1,49 @@
+Presentation - Script
+
+Introduction
+Started by taking a stratified sampling over class 4 for the training, validation and test set for the model. The final split was 60:20:20 and the breakdowns of each class type is shown. Overall there were very few observations in the Ia category. 
+
+We started by trying out several different models, and selecting the best performing ones. 
+
+The models tried are shown in the table. The models tried were 
+decision tree
+random forests
+extreme gradient boosting
+k nearest neighbours
+logistic regression
+naive bayes
+support vector machines
+
+For the final model, we used a combination of different models, Highlighted in the table. This was chosen as a combination of approaches, a generative, discriminative and algorithmic approach. 
+Naive Bayes is a discriminative classifier. 
+Normalisation and Feature selection methods were applied to optimise this model 
+The highest accuracy on the test set using this model for the binary classifier was 93% 
+Logistic Regression is the generative classifier
+Logistic regression used normalisation to ensure all coefficients(betas) were on a shared scale. Different normalisations were tried but most consistent results were seen when normalised to standard deviation of 1. 
+The highest accuracy on the test set using this model for the binary classifier was 89% 
+XGB 
+This was an algorithmic method using the generative decision tree classifier as its base. The optimal parameters chosen by a random grid search and accuracy was measured by Cross validation 
+The highest accuracy on the test set using this model for the binary classifier was 87% 
+Feature selection was applied to some models:
+For the feature selection, we tried two different approaches: 
+Select K best, which runs a chi-squared correlation test on the data, which helps to determine the strength of each variable's relationship with the output. 
+PCA, which selects components based on the features which have the best explanation of the variance. 
+In the end the performance of the classifier with variables selected by PCA was higher, so this was included in the final model 
+Combine the models 
+We selected a generative, discriminative and algorithmic method with the best accuracy on the test set as described. 
+how the model was combined: each of our selected models output a probability of classification. the mean of the three probabilities was taken and the final classification was based on this. 
+The individually best performing classifier was the Naive Bayes
+The blended model gave good and consistent accuracies on training, validation and test. 
+Most models were adapted for the multiclass setting
+svm - algorithmic model
+xgb - algorithmic / generative
+nb  with PCA - discriminative
+
+Conclusions: Analysis of model performance
+model scored highly on perplexity? 
+The perplexity of our model was very low, at 1.3422 on the unseen data set. 
+We attempt to explain this by considering the vairance in our predictions. Using our blended approach, we were able to reduce the overall variance of these. As perplexity assigns a larger weighting to incorrectly classified observations, the low variance meant that the probability of these classifications was smaller than a model with higher vairance. 
+estimate of binary accuracy so far off?
+
+
+

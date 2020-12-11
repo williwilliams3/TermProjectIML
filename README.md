@@ -1,5 +1,6 @@
 # TermProjectIML
-#### Introduction to Machine Learning Fall 2020 Term Project
+#### Introduction to Machine Learning, Fall 2020 Term Project
+Project members: Bernardo Williams, Julia Sanders and Mikko Saukkoriipi.
  
  Objective: 
  Train a ML model on npf_train.csv.

@@ -1,5 +1,6 @@
 # TermProjectIML
- Fall 2020 Term Project
+#### Introduction to Machine Learning
+#### Fall 2020 Term Project
  
  Objective: 
  Train a ML model on npf_train.csv.

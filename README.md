@@ -1,10 +1,8 @@
 # TermProjectIML
  Fall 2020 Term Project
  
- Objective:
- 
- Train a ML model on npf_train.csv
-
+ Objective: 
+ Train a ML model on npf_train.csv.
  Generate the following predictions for npf_test_hidden.csv dataset at most on December 6. 
  
   	1. Binary class predictions

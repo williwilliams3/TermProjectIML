@@ -1,6 +1,6 @@
 # TermProjectIML
 #### Introduction to Machine Learning, Fall 2020 Term Project
-Project members: Bernardo Williams (GitHub: williwilliams3), Julia Sanders (GitHub: julia-potato) and Mikko Saukkoriipi (GitHub: Saukkoriipi).
+Project members: Bernardo Williams (GitHub: williwilliams3), Julia Sanders (GitHub: julia-sand) and Mikko Saukkoriipi (GitHub: Saukkoriipi).
  
  Objective: 
  Train a ML model on npf_train.csv.

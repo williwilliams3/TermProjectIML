@@ -1,8 +1,12 @@
 # TermProjectIML
+
 #### Introduction to Machine Learning, Fall 2020 Term Project
-Project members: Bernardo Williams (GitHub: williwilliams3), Julia Sanders (GitHub: julia-sand) and Mikko Saukkoriipi (GitHub: Saukkoriipi).
+Project members: 
+Bernardo Williams (GitHub: williwilliams3)
+Julia Sanders (GitHub: julia-sand)
+Mikko Saukkoriipi (GitHub: Saukkoriipi)
  
- Objective: 
+#### Objective: 
  Train a ML model on npf_train.csv.
  Generate the following predictions for npf_test_hidden.csv dataset at most on December 6. 
  
@@ -69,7 +73,7 @@ DecisionTreeFit_CV.py
 	- Computes unbiased accuracy and AUC on test set
 	
 	
-### Accuracies for the binary class models	
+### Final accuracies for the binary class models	
 	
 | Accuracy   | DT Binary  | RF Binary   | XGB Binary  | KNN Binary | Log Binary  | NB bestK    | NB PCA  | SVM         | Ensamble    | 
 |------------|------------|-------------|-------------|------------|-------------|-------------|---------|-------------|-------------|
@@ -77,7 +81,7 @@ DecisionTreeFit_CV.py
 | Validation |        84% |        87%  |        90%  |       78%  |        85%  |        85%  |     87% |        90%  |        96%  | 
 | Test       |        88% |        88%  |        87%  |       80%  |        85%  |        87%  |     93% |        83%  |        92%  | 
 
-### Accuracies for the multi-classification models
+### Final accuracies for the multi-classification models
 
 | Accuracy   | DT Multiclass | RF Multiclass | XGB Multiclass | KNN Multiclass | NB bestK    | NB PCA      | SVM         | Ensamble    | 
 |------------|---------------|---------------|----------------|----------------|-------------|-------------|-------------|-------------|

@@ -23,16 +23,16 @@ For fitting the models we used two data reduction techniques, PCA and bestK feat
 	
 #### Final accuracies for the binary class models	
 	
-| Accuracy   | DT Binary  | RF Binary   | XGB Binary  | KNN Binary | Log Binary  | NB bestK    | NB PCA  | SVM         | Ensamble    | 
-|------------|------------|-------------|-------------|------------|-------------|-------------|---------|-------------|-------------|
-| Training   |        88% |        100% |        100% |       85%  |        86%  |        81%  |     84% |        98%  |        96%  | 
-| Validation |        84% |        87%  |        90%  |       78%  |        85%  |        85%  |     87% |        90%  |        96%  | 
-| Test       |        88% |        88%  |        87%  |       80%  |        85%  |        87%  |     93% |        83%  |        92%  | 
+| Accuracy   | DT Binary  | RF Binary   | XGB Binary  | KNN Binary | Log Binary  | NB PCA  | SVM         | Ensamble    | 
+|------------|------------|-------------|-------------|------------|-------------|---------|-------------|-------------|
+| Training   |        88% |        100% |        100% |       85%  |        86%  |    84% |        98%  |        96%  | 
+| Validation |        84% |        87%  |        90%  |       78%  |        85%  |     87% |        90%  |        96%  | 
+| Test       |        88% |        88%  |        87%  |       80%  |        85%  |     93% |        83%  |        92%  | 
 
 #### Final accuracies for the multi-classification models
 
-| Accuracy   | DT Multiclass | RF Multiclass | XGB Multiclass | KNN Multiclass | NB bestK    | NB PCA      | SVM         | Ensamble    | 
-|------------|---------------|---------------|----------------|----------------|-------------|-------------|-------------|-------------|
-| Training   |        66%    |        100%   |        100%    |        66%     |        62%  |        69%  |        83%  |        94%  | 
-| Validation |        64%    |        66%    |        70%     |        57.7%   |        64%  |        62%  |        69%  |        98%  |
-| Test       |        67%    |        72%    |        70%     |        57.7%   |        62%  |        65%  |        68%  |        70%  |
+| Accuracy   | DT Multiclass | RF Multiclass | XGB Multiclass | KNN Multiclass | NB PCA      | SVM         | Ensamble    | 
+|------------|---------------|---------------|----------------|----------------|-------------|-------------|-------------|
+| Training   |        66%    |        100%   |        100%    |        66%     |       69%  |        83%  |        94%  | 
+| Validation |        64%    |        66%    |        70%     |        57.7%   |       62%  |        69%  |        98%  |
+| Test       |        67%    |        72%    |        70%     |        57.7%   |       65%  |        68%  |        70%  |
